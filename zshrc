@@ -8,7 +8,7 @@ antigen init $HOME/.antigenrc
 alias cls=clear
 alias sps='sudo pacman -S'
 alias spr='sudo pacman -R'
-alias nano='./$HOME/micro'
+alias nano='$HOME/micro'
 alias conf='nano $HOME/.zshrc'
 alias src='source $HOME/.zshrc'
 alias ls='eza -a'
