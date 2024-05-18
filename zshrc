@@ -1,7 +1,9 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-
-source /path-to-antigen/antigen.zsh
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/go/bin:$PATH #go
+export PATH=$PATH:/home/spag/.pdtm/go/bin #pdtm
+export PATH=$PATH:/home/spag/.asdf/bin #asdf
+source $HOME/antigen.zsh
 
 antigen init $HOME/.antigenrc
 
@@ -10,10 +12,12 @@ alias sps='sudo pacman -S'
 alias spr='sudo pacman -R'
 alias nano='$HOME/micro'
 alias conf='nano $HOME/.zshrc'
-alias src='source $HOME/.zshrc'
+alias src='source $HOME/.zshrc && sleep 1 && zsh'
 alias ls='eza -a'
 alias cat=bat
 alias man=tldr
+alias dog='python $HOME/ReconDog/dog'
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -21,7 +25,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME=""
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -83,7 +87,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=()
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,3 +118,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 eval $(thefuck --alias)
+
+# Golang vars
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH
