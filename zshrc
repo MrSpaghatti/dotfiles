@@ -1,52 +1,42 @@
-# If you come from bash you might have to change your $PATH.
+#paths and env vars
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export PATH=$HOME/go/bin:$PATH #go
+export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH #go
 export PATH=$PATH:/home/spag/.pdtm/go/bin #pdtm
 export PATH=$PATH:/home/spag/.asdf/bin #asdf
+export ZSH="$HOME/.oh-my-zsh"
+export ASDF_DATA_DIR="$HOME/.asdf"
+export PATH=$PATH:/home/spag/.dotnet #dotnet
+
+#antigen
 source $HOME/antigen.zsh
 
 antigen init $HOME/.antigenrc
 
+#aliases
 alias cls=clear
 alias sps='sudo pacman -S'
 alias spr='sudo pacman -R'
 alias nano='$HOME/micro'
 alias conf='nano $HOME/.zshrc'
-alias src='source $HOME/.zshrc && sleep 1 && zsh'
-alias ls='eza -a'
+alias src='source $HOME/.zshrc'
+alias zrc='source $HOME/.zshrc && sleep 1 && zsh'
+alias ls='eza -a --color=tty'
+alias ff=fastfetch
 alias cat=bat
 alias man=tldr
 alias dog='python $HOME/ReconDog/dog'
-
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME=""
+#ZSH_THEME=""
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+zstyle ':omz:update' mode auto      # update automatically without asking
 
 # Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+zstyle ':omz:update' frequency 5
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -64,7 +54,7 @@ ZSH_THEME=""
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -122,4 +112,3 @@ eval $(thefuck --alias)
 # Golang vars
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH
